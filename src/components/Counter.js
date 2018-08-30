@@ -1,16 +1,7 @@
 import React from 'react'
 import { observer } from 'mobx-react'
 import styled from 'styled-components'
-
-const Card = styled.div`
-  display: flex;
-  justify-content: center;
-  padding: 50px;
-  border-radius: 20px;
-  background-color: white;
-  margin-bottom: 100px;
-  box-shadow: 0 6px 15px rgba(36, 37, 38, 0.08);
-`
+import Card from './common/Card'
 
 const Button = styled.button`
   display: inline-block;
