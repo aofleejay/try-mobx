@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { observer } from 'mobx-react'
-import Card from './common/Card'
+import { Button, Card, Row, Col } from 'antd'
 
 class TodoList extends Component {
   state = { todoInput: '' }
@@ -17,25 +17,29 @@ class TodoList extends Component {
 
   render() {
     return (
-      <Card>
-        <div style={{ flexDirection: 'column' }}>
-          <form onSubmit={this.addTodo}>
-            <input
-              type="text"
-              name="todo"
-              value={this.state.todoInput}
-              onChange={this.changeTodoInput}
-            />
-            <input
-              type="submit"
-              value="add"
-            />
-          </form>
-          <ul>
-            {this.props.todoListStore.todos.map((todo, index) => <li key={index}>{todo}</li>)}
-          </ul>
-        </div>
-      </Card>
+      <Row type="flex" justify="center">
+        <Col span={6}>
+          <Card title="Todo List">
+            <div style={{ flexDirection: 'column' }}>
+              <form onSubmit={this.addTodo}>
+                <input
+                  type="text"
+                  name="todo"
+                  value={this.state.todoInput}
+                  onChange={this.changeTodoInput}
+                />
+                <input
+                  type="submit"
+                  value="add"
+                />
+              </form>
+              <ul>
+                {this.props.todoListStore.todos.map((todo, index) => <li key={index}>{todo}</li>)}
+              </ul>
+            </div>
+          </Card>
+        </Col>
+      </Row>
     )
   }
 }

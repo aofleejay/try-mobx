@@ -1,31 +1,25 @@
 import React from 'react'
 import { observer } from 'mobx-react'
-import styled from 'styled-components'
-import Card from './common/Card'
-
-const Button = styled.button`
-  display: inline-block;
-  border: none;
-  border-radius: 10px;
-  padding: 10px 30px;
-  margin: 0;
-  background-color: white;
-  cursor: pointer;
-  outline: none;
-  box-shadow: 0 1px 6px rgba(32, 33, 36, 0.28);
-`
-
-const Text = styled.p`
-  margin-left: 50px;
-  margin-right: 50px;
-`
+import { Button, Card, Row, Col } from 'antd'
 
 const Counter = observer(({ counterStore }) => (
-  <Card >
-    <Button onClick={counterStore.decrease}>-</Button>
-    <Text>{counterStore.tick}</Text>
-    <Button onClick={counterStore.increase}>+</Button>
-  </Card>
+  <Row type="flex" justify="center">
+    <Col span={6}>
+      <Card title="Counter">
+        <Row type="flex" justify="center" align="middle">
+          <Col span={8}>
+            <Button type="primary" shape="circle" onClick={counterStore.decrease}>-</Button>
+          </Col>
+          <Col span={8}>
+            <p>{counterStore.tick}</p>
+          </Col>
+          <Col span={8}>
+            <Button type="primary" shape="circle" onClick={counterStore.increase}>+</Button>
+          </Col>
+        </Row>
+      </Card>
+    </Col>
+  </Row>
 ))
 
 export default Counter
