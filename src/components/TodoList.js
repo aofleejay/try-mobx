@@ -16,8 +16,17 @@ class TodoList extends Component {
   }
 
   render() {
+    const {
+      todos,
+      completedTodos,
+      totalTodos,
+      changeTodoStatus,
+    } = this.props.todoListStore
     return (
       <div className={styles.container}>
+        <p>
+          {completedTodos}/{totalTodos}
+        </p>
         <form onSubmit={this.addTodo}>
           <input
             type="text"
@@ -28,8 +37,15 @@ class TodoList extends Component {
           <input type="submit" value="add" />
         </form>
         <ul>
-          {this.props.todoListStore.todos.map((todo, index) => (
-            <li key={index}>{todo}</li>
+          {todos.map(todo => (
+            <div key={todo.id}>
+              <input
+                type="checkbox"
+                onChange={() => changeTodoStatus(todo.id, !todo.completed)}
+              />
+              <li>{todo.text}</li>
+              <p>{`${todo.completed}`}</p>
+            </div>
           ))}
         </ul>
       </div>
