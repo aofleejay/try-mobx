@@ -1,17 +1,16 @@
 import React from 'react'
 import { observer } from 'mobx-react'
-import { Button, Card, Row, Col } from 'antd'
+import styles from './Counter.module.css'
 
 const Counter = observer(({ counterStore }) => (
-  <div>
-    <Button type="primary" shape="circle" onClick={counterStore.decrease}>
+  <div className={styles.container}>
+    <button className={styles.button} onClick={counterStore.decrease}>
       -
-    </Button>
-
+    </button>
     <p>{counterStore.tick}</p>
-    <Button type="primary" shape="circle" onClick={counterStore.increase}>
+    <button className={styles.button} onClick={counterStore.increase}>
       +
-    </Button>
+    </button>
   </div>
 ))
 
