@@ -5,13 +5,13 @@ import { Button, Card, Row, Col } from 'antd'
 class TodoList extends Component {
   state = { todoInput: '' }
 
-  addTodo = (e) => {
+  addTodo = e => {
     e.preventDefault()
     this.props.todoListStore.addTodo(e.target.todo.value)
     this.setState({ todoInput: '' })
   }
 
-  changeTodoInput = (e) => {
+  changeTodoInput = e => {
     this.setState({ todoInput: e.target.value })
   }
 
@@ -28,13 +28,12 @@ class TodoList extends Component {
                   value={this.state.todoInput}
                   onChange={this.changeTodoInput}
                 />
-                <input
-                  type="submit"
-                  value="add"
-                />
+                <input type="submit" value="add" />
               </form>
               <ul>
-                {this.props.todoListStore.todos.map((todo, index) => <li key={index}>{todo}</li>)}
+                {this.props.todoListStore.todos.map((todo, index) => (
+                  <li key={index}>{todo}</li>
+                ))}
               </ul>
             </div>
           </Card>

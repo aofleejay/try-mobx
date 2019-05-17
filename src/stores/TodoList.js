@@ -3,7 +3,7 @@ import { decorate, observable, action } from 'mobx'
 class TodoList {
   todos = []
 
-  addTodo = (todo) => {
+  addTodo = todo => {
     this.todos.push(todo)
   }
 }
