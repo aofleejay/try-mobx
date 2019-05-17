@@ -19,8 +19,10 @@
     "format": "prettier --write \"src/**/*.js\""
   },
   "devDependencies": {
+    "husky": "2.3.0",
     "mobx-react-devtools": "6.1.1",
-    "prettier": "1.17.1"
+    "prettier": "1.17.1",
+    "pretty-quick": "1.10.0"
   },
   "browserslist": {
     "production": [
@@ -33,5 +35,10 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "pretty-quick --staged"
+    }
   }
 }
